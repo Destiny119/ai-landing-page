@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>生成AI講座 | オンライン動画学習</title>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+  <style>
+    @media (max-width: 767px) {
+      .fixed-footer {
+        position: fixed;
+        bottom: 0;
+        width: 100%;
+        background: #2563eb;
+        z-index: 50;
+        text-align: center;
+        padding: 0.75rem 0;
+      }
+      .fixed-footer a {
+        color: white;
+        font-weight: bold;
+        font-size: 1.125rem;
+        display: block;
+      }
+    }
+  </style>
+</head>
+<body class="pb-16"> <!-- 下部余白を確保 -->
+
+  <div id="root"></div>
+
+  <script src="https://unpkg.com/react@18/umd/react.development.js"></script>
+  <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+  <script type="text/babel">
+    const { useEffect, useState } = React;
+    const { createRoot } = ReactDOM;
+
+    const App = () => {
+      const [timeLeft, setTimeLeft] = useState(3600); // 1時間限定オファー
+
+      useEffect(() => {
+        const timer = setInterval(() => {
+          setTimeLeft((prev) => (prev > 0 ? prev - 1 : 0));
+        }, 1000);
+        return () => clearInterval(timer);
+      }, []);
+
+      const formatTime = (seconds) => {
+        const mins = Math.floor(seconds / 60);
+        const secs = seconds % 60;
+        return `${String(mins).padStart(2, '0')}:${String(secs).padStart(2, '0')}`;
+      };
+
+      return (
+        <div className="font-sans text-gray-800 bg-white">
+          {/* ヒーローセクション */}
+          <div className="relative">
+            <img src="https://source.unsplash.com/random/1600x900/?AI,learning" className="w-full h-96 object-cover" alt="メインビジュアル" />
+            <div className="absolute inset-0 bg-black bg-opacity-50 flex items-center justify-center">
+              <h1 className="text-white text-3xl md:text-5xl font-bold text-center px-4">
+                生成AIで未来を切り拓く。<br />オンラインで学べるAI講座
+              </h1>
+            </div>
+          </div>
+
+          {/* 商品紹介 */}
+          <section className="py-12 px-4 max-w-5xl mx-auto">
+            <h2 className="text-2xl font-semibold mb-4">生成AIオンライン講座とは？</h2>
+            <p className="text-lg mb-6">初心者から中級者まで、誰でも簡単に学べるオンライン動画講座です。ChatGPTや画像生成AIの活用方法を、実践形式でわかりやすく解説します。</p>
+            <div className="aspect-w-16 aspect-h-9 mb-6">
+              <iframe className="w-full h-64 md:h-96 rounded-lg" src="https://www.youtube.com/embed/dQw4w9WgXcQ" title="YouTube動画" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen></iframe>
+            </div>
+          </section>
+
+          {/* 限定オファー */}
+          <section className="bg-yellow-100 py-8 text-center">
+            <h3 className="text-xl font-bold mb-2">🎁 今だけ限定！特別価格でご提供中 🎁</h3>
+            <p className="text-lg mb-2">タイマーがゼロになる前にご購入ください！</p>
+            <div className="text-3xl font-mono text-red-600">{formatTime(timeLeft)}</div>
+          </section>
+
+          {/* お客様の声 */}
+          <section className="py-12 px-4 bg-gray-50">
+            <h2 className="text-2xl font-semibold text-center mb-8">受講者の声</h2>
+            <div className="grid md:grid-cols-2 gap-6 max-w-4xl mx-auto">
+              <div className="bg-white p-6 rounded shadow">
+                <p>「AI初心者の私でも理解できました。仕事にも役立っています！」</p>
+                <p className="mt-2 font-bold">– 佐藤 様</p>
+              </div>
+              <div className="bg-white p-6 rounded shadow">
+                <p>「動画がわかりやすく、好きな時間に学べるのが魅力です。」</p>
+                <p className="mt-2 font-bold">– 山田 様</p>
+              </div>
+            </div>
+          </section>
+
+          {/* 購入セクション */}
+          <section className="py-12 text-center">
+            <h2 className="text-2xl font-bold mb-4">今すぐ学びを始めましょう！</h2>
+            <p className="mb-6">今なら特別価格：<span className="text-red-600 font-bold text-xl">¥4,980</span></p>
+            <a href="#purchase" className="bg-blue-600 text-white px-6 py-3 rounded-lg hover:bg-blue-700 transition">購入する</a>
+          </section>
+
+          {/* お問い合わせ・LINE誘導 */}
+          <section className="bg-gray-800 text-white py-8 text-center">
+            <h3 className="text-lg font-semibold mb-2">ご不明点がある方はお気軽にご相談ください</h3>
+            <a href="https://line.me" className="inline-block mt-2 bg-green-500 text-white px-4 py-2 rounded hover:bg-green-600"><i className="fab fa-line mr-2"></i>LINEで質問する</a>
+          </section>
+
+          {/* 固定フッター（モバイル用購入ボタン） */}
+          <div className="fixed-footer md:hidden">
+            <a href="#purchase">今すぐ購入する</a>
+          </div>
+        </div>
+      );
+    };
+
+    const root = createRoot(document.getElementById('root'));
+    root.render(<App />);
+  </script>
+</body>
+</html>
