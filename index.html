@@ -3,131 +3,75 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>生成AIチャレンジ講座</title>
+  <title>生成AI講座 | トップ</title>
   <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700&display=swap" rel="stylesheet">
   <style>
-    body {
-      font-family: 'Noto Sans JP', sans-serif;
-    }
-    @media (max-width: 767px) {
-      .fixed-footer {
-        position: fixed;
-        bottom: 0;
-        width: 100%;
-        background: #e60012;
-        z-index: 50;
-        text-align: center;
-        padding: 0.75rem 0;
-      }
-      .fixed-footer a {
-        color: white;
-        font-weight: bold;
-        font-size: 1.125rem;
-        display: block;
-      }
-    }
+    body { font-family: 'Noto Sans JP', sans-serif; }
+    nav a:hover { color: #e60012; }
   </style>
-  <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
 </head>
-<body class="pb-20 bg-white text-gray-800">
-  <div id="root"></div>
+<body class="text-gray-800 bg-white">
+  <!-- ナビゲーション -->
+  <nav class="bg-white shadow py-4 px-6 flex justify-between items-center sticky top-0 z-50">
+    <h1 class="text-xl font-bold text-red-600">AIチャレンジ講座</h1>
+    <ul class="flex space-x-4 text-sm md:text-base font-semibold">
+      <li><a href="index.html" class="hover:text-red-600">HOME</a></li>
+      <li><a href="courses.html" class="hover:text-red-600">コース紹介</a></li>
+      <li><a href="materials.html" class="hover:text-red-600">教材説明</a></li>
+      <li><a href="faq.html" class="hover:text-red-600">よくある質問</a></li>
+    </ul>
+  </nav>
 
-  <script src="https://unpkg.com/react@18/umd/react.development.js"></script>
-  <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
-  <script type="text/babel">
-    const { createRoot } = ReactDOM;
+  <!-- ヒーロー -->
+  <header class="bg-gradient-to-r from-red-700 to-red-500 text-white text-center py-20 px-6">
+    <h2 class="text-3xl md:text-5xl font-bold leading-snug mb-4">
+      あなたの「学びたい」が、未来を切り拓く。
+    </h2>
+    <p class="text-lg md:text-xl">生成AIを味方にする最初の一歩を今ここから。</p>
+  </header>
 
-    const Hero = () => (
-      <div className="bg-gradient-to-r from-red-700 to-red-500 text-white py-20 px-4 text-center">
-        <h1 className="text-3xl md:text-5xl font-bold mb-4">
-          あなたの「学びたい」が未来を切り拓く。
-        </h1>
-        <p className="text-lg md:text-xl">
-          AIと共に成長する力を、この講座で。
-        </p>
-      </div>
-    );
+  <!-- 導入 -->
+  <section class="py-12 px-6 text-center max-w-4xl mx-auto">
+    <h3 class="text-2xl font-bold mb-4">なぜ今、生成AIを学ぶのか？</h3>
+    <p class="text-lg">
+      生成AIはもはや未来の話ではありません。ビジネス、教育、生活のあらゆる場面で活用されています。<br/>
+      この講座では、あなたがAIを「使う側」になるための基礎を丁寧に学べます。
+    </p>
+  </section>
 
-    const Intro = () => (
-      <section className="py-12 px-6 max-w-5xl mx-auto text-center">
-        <h2 className="text-2xl font-bold mb-6">なぜ今、AIを学ぶのか？</h2>
-        <p className="text-lg leading-relaxed">
-          ChatGPTなどの生成AIは、ビジネス・教育・日常すべてに影響を与える「新しい常識」になりつつあります。<br/>
-          今この瞬間から学ぶことで、未来への選択肢が広がります。
-        </p>
-      </section>
-    );
-
-    const Steps = () => (
-      <section className="bg-gray-50 py-12 px-6">
-        <div className="max-w-5xl mx-auto">
-          <h2 className="text-2xl font-bold text-center mb-8">講座の流れ（全3ステップ）</h2>
-          <div className="grid md:grid-cols-3 gap-6">
-            {[
-              { title: "STEP 1", desc: "生成AIの基本を理解する（用語・歴史・仕組み）" },
-              { title: "STEP 2", desc: "ChatGPTや画像生成AIを使ってみよう（実践）" },
-              { title: "STEP 3", desc: "ビジネスや日常での活用法を学ぶ（応用）" }
-            ].map((step, index) => (
-              <div key={index} className="bg-white p-6 rounded-lg shadow text-center">
-                <h3 className="text-xl font-bold text-red-600 mb-2">{step.title}</h3>
-                <p className="text-gray-700">{step.desc}</p>
-              </div>
-            ))}
-          </div>
+  <!-- メリット -->
+  <section class="bg-gray-50 py-12 px-6">
+    <div class="text-center max-w-4xl mx-auto">
+      <h3 class="text-2xl font-bold mb-8">この講座で得られること</h3>
+      <div class="grid md:grid-cols-3 gap-6">
+        <div class="bg-white p-6 rounded shadow">
+          <h4 class="text-lg font-bold text-red-600 mb-2">基礎から学べる</h4>
+          <p class="text-sm">AIの基礎知識や用語を丁寧に解説。初心者も安心。</p>
         </div>
-      </section>
-    );
-
-    const Benefit = () => (
-      <section className="py-12 px-6 text-center">
-        <h2 className="text-2xl font-bold mb-6">受講することで得られるもの</h2>
-        <ul className="text-lg space-y-4 max-w-2xl mx-auto">
-          <li>✅ AIリテラシーの基礎が身につく</li>
-          <li>✅ 実践的なスキルをすぐに使える</li>
-          <li>✅ 自信を持って「AIを使える人」になれる</li>
-        </ul>
-      </section>
-    );
-
-    const CTA = () => (
-      <section className="bg-red-600 text-white py-10 px-6 text-center">
-        <h2 className="text-2xl font-bold mb-4">今すぐ始めましょう！</h2>
-        <p className="mb-6 text-lg">期間限定価格：<span className="font-bold text-2xl">¥4,980</span></p>
-        <a href="#purchase" className="inline-block bg-white text-red-600 font-bold px-6 py-3 rounded-full hover:bg-gray-100 transition">受講を申し込む</a>
-      </section>
-    );
-
-    const LineInvite = () => (
-      <section className="bg-gray-100 py-8 px-6 text-center">
-        <h3 className="text-lg mb-2">講座に関するご質問はLINEからどうぞ</h3>
-        <a href="https://line.me" className="inline-block bg-green-500 text-white font-bold px-6 py-3 rounded-full hover:bg-green-600 transition">
-          <i className="fab fa-line mr-2"></i>LINEで質問する
-        </a>
-      </section>
-    );
-
-    const FooterButton = () => (
-      <div className="fixed-footer md:hidden">
-        <a href="#purchase">今すぐ受講する</a>
+        <div class="bg-white p-6 rounded shadow">
+          <h4 class="text-lg font-bold text-red-600 mb-2">実践力がつく</h4>
+          <p class="text-sm">ChatGPTや画像生成など、実際に手を動かしながら習得。</p>
+        </div>
+        <div class="bg-white p-6 rounded shadow">
+          <h4 class="text-lg font-bold text-red-600 mb-2">未来に備える</h4>
+          <p class="text-sm">ビジネスや日常でのAI活用方法を学び、先を行く人材に。</p>
+        </div>
       </div>
-    );
+    </div>
+  </section>
 
-    const App = () => (
-      <div>
-        <Hero />
-        <Intro />
-        <Steps />
-        <Benefit />
-        <CTA />
-        <LineInvite />
-        <FooterButton />
-      </div>
-    );
+  <!-- LINE誘導 -->
+  <section class="text-center py-12 px-6">
+    <p class="text-lg mb-4">ご不明な点はLINEからお気軽にご質問ください</p>
+    <a href="https://line.me" class="inline-block bg-green-500 text-white font-bold px-6 py-3 rounded hover:bg-green-600 transition">
+      <i class="fab fa-line mr-2"></i>LINEで質問する
+    </a>
+  </section>
 
-    const root = createRoot(document.getElementById("root"));
-    root.render(<App />);
-  </script>
+  <!-- フッター -->
+  <footer class="bg-gray-100 text-center py-4 text-sm text-gray-600">
+    &copy; 2024 AIチャレンジ講座 All rights reserved.
+  </footer>
 </body>
 </html>
